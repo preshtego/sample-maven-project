@@ -5,7 +5,6 @@ pipeline {
             steps {
                 echo 'Running build automation'
                 sh 'mvn clean install'
-                archiveArtifacts artifacts: '/simple-maven.zip'
             }
         }
         stage('DeployToStaging') {
