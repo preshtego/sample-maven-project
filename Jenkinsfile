@@ -7,5 +7,8 @@ pipeline {
                 sh 'maven clean install'
             }
         }
+        stage('Deploy'){
+            steps {
+                echo "Deploying...."
     }
 }
