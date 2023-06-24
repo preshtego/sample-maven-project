@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('log version infor'){
             steps {
-                sh 'maven version'
+                sh 'mvn --version'
                 sh 'maven clean install'
             }
         }
