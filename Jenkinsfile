@@ -18,19 +18,11 @@ pipeline {
                         continueOnError: false,
                         publishers: [
                             sshPublisherDesc(
-                                configName: 'staging',
+                                configName: 'Staging Env',
                                 sshCredentials: [
                                     username: "$USERNAME",
                                     encryptedPassphrase: "$USERPASS"
                                 ], 
-                                transfers: [
-                                    sshTransfer(
-                                        sourceFiles: 'dist/simple-maven.zip',
-                                        removePrefix: 'dist/',
-                                        remoteDirectory: '/tmp',
-                                        execCommand: 'sudo /usr/bin/systemctl stop simple-maven && rm -rf /opt/simpl-emaven/* && unzip /tmp/simple-maven.zip -d /opt/simple-maven && sudo /usr/bin/systemctl start simple-maven'
-                                    )
-                                ]
                             )
                         ]
                     )
@@ -55,14 +47,6 @@ pipeline {
                                     username: "$USERNAME",
                                     encryptedPassphrase: "$USERPASS"
                                 ], 
-                                transfers: [
-                                    sshTransfer(
-                                        sourceFiles: 'dist/simple-maven.zip',
-                                        removePrefix: 'dist/',
-                                        remoteDirectory: '/tmp',
-                                        execCommand: 'sudo /usr/bin/systemctl stop simple-maven && rm -rf /opt/simple-maven/* && unzip /tmp/simple-maven.zip -d /opt/simple-maven && sudo /usr/bin/systemctl start simple-maven'
-                                    )
-                                ]
                             )
                         ]
                     )
